@@ -1,12 +1,11 @@
-import { StatusBar, Text, View } from "react-native";
+import { StatusBar, Text } from "react-native";
+import { SafeAreaView } from "react-native-safe-area-context";
 
 export default function HomeScreen() {
   return (
-    <View className="flex-1 items-center justify-center bg-white">
-      <Text className="text-xl font-bold text-blue-500">
-        Welcome to Nativewind!
-      </Text>
+    <SafeAreaView className="flex-1 items-center justify-center bg-white">
+      <Text className={"text-red-500"}>Welcome to Nativewind!</Text>
       <StatusBar style="auto" />
-    </View>
+    </SafeAreaView>
   );
 }
