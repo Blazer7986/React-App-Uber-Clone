@@ -1,4 +1,5 @@
-import { ButtonProps, Text, TouchableOpacity } from "react-native";
+import { ButtonProps } from "@/types/type";
+import { Text, TouchableOpacity } from "react-native";
 
 const getBgVariantStyle = (variant: ButtonProps["bgVariant"]) => {
   switch (variant) {
@@ -19,7 +20,7 @@ const getTextVariantStyle = (variant: ButtonProps["textVariant"]) => {
   switch (variant) {
     case "primary":
       return "text-black";
-    case "seconday":
+    case "secondary":
       return "bg-transparent border-neutral-300 border-[0.5px]";
     case "danger":
       return "bg-red-100";
