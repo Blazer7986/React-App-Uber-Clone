@@ -1,33 +1,37 @@
-import CustomButton from "@/components/CustomButton";
-import { onboarding } from "@/constants";
 import { router } from "expo-router";
 import { useRef, useState } from "react";
 import { Image, Text, TouchableOpacity, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import Swiper from "react-native-swiper";
 
-const Welcome = () => {
+import CustomButton from "@/components/CustomButton";
+import { onboarding } from "@/constants";
+
+const Home = () => {
   const swiperRef = useRef<Swiper>(null);
   const [activeIndex, setActiveIndex] = useState(0);
+
   const isLastSlide = activeIndex === onboarding.length - 1;
 
   return (
     <SafeAreaView className="flex h-full items-center justify-between bg-white">
       <TouchableOpacity
-        onPress={() => router.replace("/(auth)/sign-up")}
-        className="w-full justify-end items-end p-5"
+        onPress={() => {
+          router.replace("/(auth)/sign-up");
+        }}
+        className="w-full flex justify-end items-end p-5"
       >
-        {/* 48:45 */}
         <Text className="text-black text-md font-JakartaBold">Skip</Text>
       </TouchableOpacity>
+
       <Swiper
         ref={swiperRef}
         loop={false}
         dot={
-          <View className="w-[32px] h-[4px] bg-[#E2E8F0] mx-1 rounded-full" />
+          <View className="w-[32px] h-[4px] mx-1 bg-[#E2E8F0] rounded-full" />
         }
         activeDot={
-          <View className="w-[32px] h-[4px] bg-[#0286FF] mx-1 rounded-full" />
+          <View className="w-[32px] h-[4px] mx-1 bg-[#0286FF] rounded-full" />
         }
         onIndexChanged={(index) => setActiveIndex(index)}
       >
@@ -35,7 +39,7 @@ const Welcome = () => {
           <View key={item.id} className="flex items-center justify-center p-5">
             <Image
               source={item.image}
-              className="w-full h-[300px] "
+              className="w-full h-[300px]"
               resizeMode="contain"
             />
             <View className="flex flex-row items-center justify-center w-full mt-10">
@@ -43,7 +47,7 @@ const Welcome = () => {
                 {item.title}
               </Text>
             </View>
-            <Text className="text-[#858585] text-lg font-JakartaSemiBold text-center mx-10 mt-3">
+            <Text className="text-md font-JakartaSemiBold text-center text-[#858585] mx-10 mt-3">
               {item.description}
             </Text>
           </View>
@@ -57,10 +61,10 @@ const Welcome = () => {
             ? router.replace("/(auth)/sign-up")
             : swiperRef.current?.scrollBy(1)
         }
-        className="w-11/12 mt-10"
+        className="w-11/12 mt-10 mb-5"
       />
     </SafeAreaView>
   );
 };
 
-export default Welcome;
+export default Home;

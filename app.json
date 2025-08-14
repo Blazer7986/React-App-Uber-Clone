@@ -37,9 +37,9 @@
           "imageWidth": 200,
           "resizeMode": "contain",
           "backgroundColor": "#ffffff"
-        },
-        { "origin": "https://urber.com/" }
-      ]
+        }
+      ],
+      ["expo-router", { "origin": "https://urber.com/" }]
     ],
     "experiments": {
       "typedRoutes": true

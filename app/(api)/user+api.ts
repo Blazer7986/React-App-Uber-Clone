@@ -12,11 +12,23 @@ export async function POST(request: Request) {
       );
     }
 
-    const response =
-      await sql`INSERT INTO users (name, email, clerk_id) VALUES (${name}, ${email}, ${clerkId})`;
+    const response = await sql`
+      INSERT INTO users (
+        name, 
+        email, 
+        clerk_id
+      ) 
+      VALUES (
+        ${name}, 
+        ${email},
+        ${clerkId}
+     );`;
 
-    return Response.json({ data: response }, { status: 201 });
+    return new Response(JSON.stringify({ data: response }), {
+      status: 201,
+    });
   } catch (error) {
-    return Response.json({ error: error }, { status: 500 });
+    console.error("Error creating user:", error);
+    return Response.json({ error: "Internal Server Error" }, { status: 500 });
   }
 }
