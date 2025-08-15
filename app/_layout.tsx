@@ -5,9 +5,9 @@ import * as SplashScreen from "expo-splash-screen";
 import { useEffect } from "react";
 import { LogBox } from "react-native";
 import "react-native-reanimated";
-import "./global.css";
 
 import { tokenCache } from "@/lib/auth";
+import "./global.css";
 
 // Prevent the splash screen from auto-hiding before asset loading is complete.
 SplashScreen.preventAutoHideAsync();
@@ -20,7 +20,7 @@ if (!publishableKey) {
   );
 }
 
-LogBox.ignoreLogs(["Clerk:"]);
+LogBox.ignoreLogs(["Clerk: "]);
 
 export default function RootLayout() {
   const [loaded] = useFonts({

@@ -1,4 +1,4 @@
-import { Alert, Image, Text, View } from "react-native";
+import { Image, Text, View } from "react-native";
 
 import CustomButton from "@/components/CustomButton";
 import { icons } from "@/constants";
@@ -23,8 +23,6 @@ const OAuth = () => {
       // If sign in was successful, set the active session
       if (createdSessionId) {
         setActive!({ session: createdSessionId });
-
-        Alert.alert("Success", "Session Exists");
         router.push("/(root)/(tabs)/home");
       }
     } catch (err) {
